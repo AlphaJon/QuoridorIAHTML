@@ -6,7 +6,14 @@
 
 let gameGrid = document.getElementById("gamegrid");
 let gridSize = 9;
+let pieces = {
+    blue: {x: 0, y: 0},
+    green: {x: 0, y: 0},
+    red: {x: 0, y: 0},
+    yellow: {x: 0, y: 0},
+};
 
+//Position dans le table ASCII
 const ACode = 65;
 const ZCode = 90;
 
@@ -82,6 +89,25 @@ function generateGrid(size = 9) {
         spacing.classList = "spacing-label";
         labelCols.appendChild(spacing);
     }
+
+
+    //Pose des pions
+    let colors = ["blue", "green", "red", "yellow"];
+    let positions = [
+        {x: Math.ceil((size - 1)/2), y: 0},
+        {x: size - 1, y: Math.ceil((size - 1)/2)},
+        {x: Math.ceil((size - 1)/2), y: size - 1},
+        {x: 0, y: Math.ceil((size - 1)/2)},
+    ]
+    for (let index = 0; index < 4; index++) {
+        let piecePos = positions[index];
+        let tmpPiece = document.createElement("div");
+        tmpPiece.classList = "piece";
+        tmpPiece.id = colors[index];
+        let cell = selectCell(piecePos.x, piecePos.y);
+        cell.appendChild(tmpPiece);
+        pieces[colors[index]] = piecePos;
+    }
 };
 
 generateGrid(); //initialise la page avec une grille
@@ -143,4 +169,24 @@ function placeWall(direction, x, y){
     if (direction === "h"){
         selectHWalls(x, y).forEach(element => element.classList.replace("inactive", "active"));
     }
+}
+
+/**
+ * Permet de déplacer une des 4 pièces, en indiquant la couleur
+ * et les nouvelles coordonnées
+ * L'ancienne position est automatiquement ajustée
+ * @param {"blue" | "green" | "red" | "yellow"} color 
+ * @param {number} x 
+ * @param {number} y 
+ */
+function movePiece(color, x, y){
+    let oldPiecePos = pieces[color];
+    let oldCell = selectCell(oldPiecePos.x, oldPiecePos.y);
+    oldCell.innerHTML = "";
+    let tmpPiece = document.createElement("div");
+    tmpPiece.classList = "piece";
+    tmpPiece.id = color;
+    let newCell = selectCell(x, y);
+    newCell.appendChild(tmpPiece);
+    pieces[color] = {x: x, y: y};
 }

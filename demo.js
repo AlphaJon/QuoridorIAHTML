@@ -31,10 +31,10 @@ function processCommand(text){
     let [x,y] = convertCoords(params[1].toUpperCase());
     switch (command){
         case "VERT":
-            //TODO
+            movePiece("green", x, y);
             break;
         case "BLEU":
-            //TODO
+            movePiece("blue", x, y);
             break;
         case "MUR":
             let direction = params[2].toLowerCase(); // h ou v
