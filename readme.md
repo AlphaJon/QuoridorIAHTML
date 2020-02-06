@@ -3,9 +3,9 @@
 ## Description générale
 
 Ce repo contient des fichiers HTML, CSS Et JavaScript qui sont destinés à être utilisés dans le cadre du cours d'Intelligence Artificielle. Ceux-ci peuvent être adaptés librement selon vos besoins, et je suis ouvert aux suggestions si elles peuvent aider pour la partie web du projet.
-**Je ne fournis aucun code prolog**
+**Je ne fournis aucun code prolog dans ce repo**
 
-# Utilisation
+## Utilisation
 
 Le plateau est constitué d'un ensemble de cellules et de murs (les murs ont 3 types: horizontal, vertical, et intersection)
 
@@ -45,6 +45,6 @@ Le comportement du programme n'est pas défini si les coordonnées indiquées so
 
 ## Contact
 
-Pour proposer des mises à jour ou des changements, ou pour demander de l'aide, je suis accessible de préférence via [Discord](https://discordapp.com/) sous le nom d'utilisateur `AlphaJon#0910`, ou sinon via mon adresse mail UNamur (jonathan.ferreira@student.unamur.be)
+Pour proposer des mises à jour ou des changements, ou pour demander de l'aide, je suis accessible de préférence via [Discord](https://discordapp.com/) sous le nom d'utilisateur `AlphaJon#0910`, ou sinon via mon adresse mail UNamur (jonathan.ferreira (@) student.unamur.be)
 
 Bonne chance :)
