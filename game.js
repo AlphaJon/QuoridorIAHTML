@@ -113,6 +113,26 @@ function generateGrid(size = 9) {
 generateGrid(); //initialise la page avec une grille
 
 /**
+ * Donne une chaîne de type `A1` et la convertit
+ * en un tableau contenant les coordonnées
+ * horizontale et verticale demandées.
+ * Le tableau contient **toujours** 2 éléments.
+ * Note: le résultat peut varier selon la taille de la grille
+ * @example Avec une grille de taille 9:
+ * "D2" -> [3, 7]
+ * "E6" -> [4, 3]
+ * @param {string} rawCoords 
+ * @returns {number[]} Les coordonnées sous forme de 2 nombres
+ */
+function convertCoords(rawCoords) {
+    let val = rawCoords.charCodeAt(0);
+    if (val < ACode || val > ZCode){ //si le caractère n'est pas une lettre
+        throw new Error("Coordonnées invalides");
+    } 
+    return [val - ACode, gridSize - rawCoords[1]];
+}
+
+/**
  * Permet de sélectionner une cellule
  * à partir des coordonnées x et y
  * en partant d'en haut à gauche
